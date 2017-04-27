@@ -1,1 +1,8 @@
 <h1> edit </h1>
+<form action ="/photos/<%= @the_id %>/edit">
+  <label for="cap"> the caption </label>
+  <input id="cap" type="text" name="da_caption" value="<%= @cap  %>">
+  <label for="source"> the source </label>
+    <input  id="source" type="text" name="da_source" value="<%= @url  %>" >
+      <button>Add photo</button>
+    </form>

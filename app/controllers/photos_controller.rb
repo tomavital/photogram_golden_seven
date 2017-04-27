@@ -29,7 +29,11 @@ class PhotosController < ApplicationController
   end
 
   def edit_form
-
+    @the_id = params[:id]
+    the_id1 = params[:id]
+    @my_photo = Photo.find(the_id1)
+    @url = @my_photo.source
+    @cap = @my_photo.caption
     render("photos/edit_form.html.erb")
   end
 
