@@ -1,7 +1,7 @@
 class PhotosController < ApplicationController
 
   def index
-    @list_of_all_my_photos =   Photo.all  
+    @list_of_all_my_photos =   Photo.all
 
     render("photos/index.html.erb")
   end
@@ -12,8 +12,14 @@ class PhotosController < ApplicationController
   end
 
   def create_row
-
-    render("photos/create_row.html.erb")
+    url = params[:da_source]
+    cap = params[:da_caption]
+    new_photo = Photo.new
+    new_photo.source = url
+    new_photo.caption = cap
+    new_photo.save
+    # render("photos/create_row.html.erb")
+    redirect_to("/photos/#{new_photo.id}")
   end
 
   def show
