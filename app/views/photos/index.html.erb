@@ -1,1 +1,19 @@
 <h1> List of photos </h1>
+
+<% @list_of_all_my_photos.each do |the_photo| %>
+
+<img src="<%= the_photo.source%>">
+<p>
+<%= the_photo.caption %>
+</p>
+<%= time_ago_in_words(the_photo.created_at) %>
+
+
+
+
+<div>
+<a href="photos/<%= the_photo.id %>">edit</a>
+<a href="delete_photo/<%= the_photo.id %>">delete</a>
+</div>
+
+<% end %>
