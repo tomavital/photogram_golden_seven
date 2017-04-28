@@ -50,7 +50,8 @@ class PhotosController < ApplicationController
   end
 
   def destroy_row
-
-    render("photos/destroy_row.html.erb")
+    photo = Photo.find(params[:id])
+    photo.destroy
+    redirect_to("/photos")
   end
 end
