@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
 
   def index
+
     @list_of_all_my_photos =   Photo.all
 
     render("photos/index.html.erb")
@@ -34,7 +35,14 @@ class PhotosController < ApplicationController
     @my_photo = Photo.find(the_id1)
     @url = @my_photo.source
     @cap = @my_photo.caption
-    render("photos/edit_form.html.erb")
+    url = params[:da_source]
+    cap = params[:da_caption]
+    edit_photo = Photo.find(the_id1)
+    edit_photo.source = url
+    edit_photo.caption = cap
+    edit_photo.save
+redirect_to("/photos/#{edit_photo.id}")
+    # render("photos/edit_form.html.erb")
   end
 
   def update_row
